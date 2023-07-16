@@ -1,21 +1,22 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import {RouterView} from 'vue-router';
+
+import {Nav, Alert} from '@/components';
+import {useAuthStore} from '@/stores';
+
+const authStore = useAuthStore();
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
-      </nav>
+  <div class="app-container" :class="authStore.user && 'bg-light'">
+    <Nav/>
+    <Alert/>
+    <div class="container pt-4 pb-4">
+      <RouterView/>
     </div>
-  </header>
-
-  <div class="page">
-    <RouterView />
   </div>
 </template>
 
-<style scoped>
+<style>
+@import '@/assets/base.css';
 </style>
