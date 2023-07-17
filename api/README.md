@@ -14,9 +14,8 @@ docker exec -it api-laravel.test-1 "/bin/bash"
 cp .env.sample .env &&
 npm i &&
 npm run build &&
-php artisan migrate &&
 php artisan optimize &&
-php artisan db:seed
+php artisan migrate:refresh --seed
 ```
 
 > Demo account
