@@ -15,8 +15,13 @@ cp .env.sample .env &&
 npm i &&
 npm run build &&
 php artisan migrate &&
-php artisan optimize
+php artisan optimize &&
+php artisan db:seed
 ```
+
+> Demo account
+> email: admin@example.com 
+> pwd: password
 
 [ 3 ] __Generate Client ID & Client Secret__
 ```shell
@@ -24,11 +29,11 @@ php artisan passport:client --password
 ```
 
 [ 4 ] __Register user__
-+ Open website by any Browser: http://localhost:8088
++ Open website by any Browser: http://localhost:[APP_PORT]
 + Click register button, and enter user's infomation.
 
 [ 5 ] __Use postman to test API__
-+ URL: htt://localhost:8088/oauth/token
++ URL: htt://localhost:[APP_PORT]/oauth/token
 + Method: POST
 + Payload body 
 ```json
