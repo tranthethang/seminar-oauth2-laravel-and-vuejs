@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class User
@@ -24,7 +25,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @package App\Models
  */
 class User extends Authenticatable
-{
+{	
+    use HasFactory;
+
 	protected $table = 'users';
 
 	protected $casts = [
