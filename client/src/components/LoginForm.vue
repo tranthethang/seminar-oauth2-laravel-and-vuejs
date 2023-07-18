@@ -1,17 +1,18 @@
-<script setup></script>
+<script setup>
+</script>
 
 <template>
   <form>
     <p>
       <label>
         <span>Email</span><br />
-        <input type="text" v-model="email" />
+        <input type="email" v-model="email" maxlength="32"/>
       </label>
     </p>
     <p>
       <label>
         <span>Password</span><br />
-        <input type="text" v-model="password" />
+        <input type="text" v-model="password" maxlength="32"/>
       </label>
     </p>
     <p>
@@ -24,13 +25,14 @@
 export default {
   data() {
     return {
-      email: "",
-      password: "",
+      email: "admin@example.com",
+      password: "password",
     };
   },
   methods: {
-    submit() {
-      debugger
+    submit(e) {
+      e.preventDefault();
+
       this.$emit("submit", {
         email: this.email,
         password: this.password,
