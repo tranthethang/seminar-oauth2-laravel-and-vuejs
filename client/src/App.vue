@@ -1,6 +1,5 @@
 <script setup>
-import axios from "axios";
-
+import { axiosHelper } from "./helpers/axios";
 import LoginForm from "./components/LoginForm.vue";
 </script>
 
@@ -19,19 +18,17 @@ export default {
   },
   methods: {
     handleSubmit(payload) {
-      axios({
-        method: "post",
-        url: "http://localhost:8000/oauth/token",
-        data: {
+      axiosHelper
+        .post("/api/oauth/token", {
           ...payload,
           grant_type: "password",
           client_id: "3",
           client_secret: "s1Ez50vSalkUN2txtxWhCZ51xE7648E35Ai3Ha3S",
           scope: "",
-        },
-      }).then((response) => {
-        console.log(response);
-      });
+        })
+        .then((response) => {
+          console.log(response);
+        });
     },
   },
 };
