@@ -3,21 +3,17 @@
 
 <template>
   <form>
-    <p>
-      <label>
-        <span>Email</span><br />
-        <input type="email" v-model="email" maxlength="32"/>
-      </label>
-    </p>
-    <p>
-      <label>
-        <span>Password</span><br />
-        <input type="text" v-model="password" maxlength="32"/>
-      </label>
-    </p>
-    <p>
+    <div>
+      <label>Email</label>
+      <input type="email" v-model="email" maxlength="32"/>
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="text" v-model="password" maxlength="32"/>
+    </div>
+    <div>
       <button type="submit" @click="submit">Login</button>
-    </p>
+    </div>
   </form>
 </template>
 

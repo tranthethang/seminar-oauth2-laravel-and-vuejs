@@ -1,21 +1,19 @@
+@import "milligram";
 @import './base.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #dfdfdf;
+}
 
 #app {
   max-width: 960px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 30px;
   font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+  min-height: 100vh;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
 }

@@ -5,15 +5,17 @@ import Profile from "./components/Profile.vue";
 
 <template>
   <main>
-    <fieldset v-if="!isAuthenticated">
-      <legend>Step 1: Login</legend>
+    <template v-if="!isAuthenticated">
+      <h3>Login</h3>
+      <hr/>
       <LoginForm @submit="handleSubmit"/>
-    </fieldset>
+    </template>
 
-    <fieldset v-if="isAuthenticated">
-      <legend>Step2: Profile</legend>
+    <template v-if="isAuthenticated">
+      <h3>Profile</h3>
+      <hr/>
       <Profile @logout="handleLogout"/>
-    </fieldset>
+    </template>
   </main>
 </template>
 
