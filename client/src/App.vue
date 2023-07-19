@@ -1,5 +1,5 @@
 <script setup>
-import { axiosHelper } from "./helpers/axios";
+import $axios from "./libs/axios";
 import LoginForm from "./components/LoginForm.vue";
 </script>
 
@@ -18,8 +18,8 @@ export default {
   },
   methods: {
     handleSubmit(payload) {
-      axiosHelper
-        .post("/api/oauth/token", {
+      $axios
+        .post("/ffd/oauth/token", {
           ...payload,
           grant_type: "password",
           client_id: "3",
