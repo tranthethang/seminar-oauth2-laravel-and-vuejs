@@ -1,6 +1,6 @@
 <script setup>
-import LoginForm from "./components/LoginForm.vue";
-import Profile from "./components/Profile.vue";
+import LoginForm from "./components/LoginForm.vue"
+import Profile from "./components/Profile.vue"
 </script>
 
 <template>
@@ -22,13 +22,16 @@ import Profile from "./components/Profile.vue";
 <style scoped></style>
 
 <script>
-import $axios from "@/libs/axios";
+import LocalStorageService from "@/services/LocalStorageService"
+import $axios from "@/libs/axios"
+
+const localStorageService = LocalStorageService.getService()
 
 export default {
   data() {
     return {
       isAuthenticated: false,
-    };
+    }
   },
   methods: {
     handleSubmit(payload) {
@@ -40,18 +43,22 @@ export default {
         client_secret: import.meta.env.VITE_CLIENT_SECRET,
         scope: "",
       }).then((response) => {
-        console.log(response);
+        console.log(response)
+        localStorageService.setToken(response?.data)
       }).finally(() => {
-        this.isAuthenticated = true;
-        this.fetchProfile();
+        this.isAuthenticated = true
+        this.fetchProfile()
       })
     },
     handleLogout(payload) {
-      this.isAuthenticated = false;
+      this.isAuthenticated = false
+      localStorageService.clearToken()
     },
     fetchProfile() {
-
+      $axios.get("/api/user").then((response) => {
+        console.log(response)
+      })
     }
   },
-};
+}
 </script>
