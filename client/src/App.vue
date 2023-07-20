@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     handleSubmit(payload) {
-      $axios.post("/api/oauth/token", {
+      $axios.post("/backend/oauth/token", {
         username: payload?.email,
         password: payload?.password,
         grant_type: "password",
@@ -55,7 +55,7 @@ export default {
       localStorageService.clearToken()
     },
     fetchProfile() {
-      $axios.get("/api/user").then((response) => {
+      $axios.get("/backend/api/user").then((response) => {
         console.log(response)
       })
     }
