@@ -5,11 +5,11 @@
   <form>
     <div>
       <label>Email</label>
-      <input type="email" v-model="email" maxlength="32"/>
+      <input type="email" v-model="email" :placeholder="email" maxlength="32"/>
     </div>
     <div>
       <label>Password</label>
-      <input type="text" v-model="password" maxlength="32"/>
+      <input type="password" v-model="password" :placeholder="password" maxlength="32"/>
     </div>
     <div>
       <button type="submit" @click="submit">Login</button>

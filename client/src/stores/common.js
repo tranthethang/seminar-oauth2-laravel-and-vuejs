@@ -8,8 +8,8 @@ export const useCommonStore = defineStore({
     }),
     getters: {
         getProfile: (state) => {
-            return state.user;
-        }
+            return state?.user;
+        },
     },
     actions: {
         async setProfile(payload) {
