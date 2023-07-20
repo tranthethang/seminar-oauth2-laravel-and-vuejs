@@ -7,12 +7,11 @@ body {
 }
 
 #app {
-  max-width: 960px;
-  margin: 0 auto;
+  max-width: 480px;
+  margin: 0 auto 0 0;
   padding: 30px;
   font-weight: normal;
   min-height: 100vh;
   background-color: #fff;
-  border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
 }

@@ -14,6 +14,8 @@ import Profile from "./components/Profile.vue"
     <template v-if="isAuthenticated">
       <h3>Profile</h3>
       <hr/>
+      <p v-for="(val, key) in commonStore.user"><code>{{ key }}</code>{{ val }}</p>
+      <hr/>
       <Profile @logout="handleLogout"/>
     </template>
   </main>
@@ -24,6 +26,8 @@ import Profile from "./components/Profile.vue"
 <script>
 import LocalStorageService from "@/services/LocalStorageService"
 import $axios from "@/libs/axios"
+import {mapStores} from "pinia";
+import {useCommonStore} from "@/stores/common";
 
 const localStorageService = LocalStorageService.getService()
 
@@ -32,6 +36,9 @@ export default {
     return {
       isAuthenticated: false,
     }
+  },
+  computed: {
+    ...mapStores(useCommonStore)
   },
   methods: {
     handleSubmit(payload) {
@@ -57,6 +64,7 @@ export default {
     fetchProfile() {
       $axios.get("/backend/api/user").then((response) => {
         console.log(response)
+        this.commonStore.setProfile(response?.data)
       })
     }
   },
