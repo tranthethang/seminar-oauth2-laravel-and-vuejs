@@ -39,30 +39,14 @@ export default {
     ...mapState(useCommonStore, ["user"]),
   },
   methods: {
-    ...mapActions(useCommonStore, ["setProfile"]),
+    ...mapActions(useCommonStore, ["login", "setProfile"]),
     handleSubmit(payload) {
-      $axios.post("/backend/oauth/token", {
-        username: payload?.email,
-        password: payload?.password,
-        grant_type: "password",
-        client_id: import.meta.env.VITE_CLIENT_ID,
-        client_secret: import.meta.env.VITE_CLIENT_SECRET,
-        scope: "",
-      }).then((response) => {
-        localStorageService.setToken(response?.data)
-      }).finally(() => {
-        this.fetchProfile()
-      })
+      this.login(payload);
     },
     handleLogout() {
       localStorageService.clearToken()
       this.setProfile(null)
     },
-    fetchProfile() {
-      $axios.get("/backend/api/user").then((response) => {
-        this.setProfile(response?.data)
-      })
-    }
   },
 }
 </script>
