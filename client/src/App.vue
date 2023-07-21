@@ -24,12 +24,8 @@ import Profile from "./components/Profile.vue"
 <style scoped></style>
 
 <script>
-import LocalStorageService from "@/services/LocalStorageService"
-import $axios from "@/libs/axios"
 import {mapActions, mapState} from "pinia";
 import {useCommonStore} from "@/stores/common";
-
-const localStorageService = LocalStorageService.getService()
 
 export default {
   data() {
@@ -39,13 +35,13 @@ export default {
     ...mapState(useCommonStore, ["user"]),
   },
   methods: {
-    ...mapActions(useCommonStore, ["login", "setProfile"]),
-    handleSubmit(payload) {
-      this.login(payload);
+    ...mapActions(useCommonStore, ["login", "logout", "fetchUser"]),
+    async handleSubmit(payload) {
+      await this.login(payload)
+      await this.fetchUser()
     },
-    handleLogout() {
-      localStorageService.clearToken()
-      this.setProfile(null)
+    async handleLogout() {
+      await this.logout()
     },
   },
 }

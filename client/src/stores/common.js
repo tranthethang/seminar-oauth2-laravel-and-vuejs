@@ -1,37 +1,37 @@
 import $axios from "@/libs/axios";
-import { defineStore } from "pinia";
+import {defineStore} from "pinia";
+import LocalStorageService from "@/services/LocalStorageService"
+
+const localStorageService = LocalStorageService.getService()
+
 
 export const useCommonStore = defineStore({
-  id: "common",
-  state: () => ({
-    user: null,
-    loading: false,
-  }),
-  getters: {
-    getProfile: (state) => {
-      return state?.user;
-    },
-  },
-  actions: {
-    async login(payload) {
-      const response = await $axios.post("/backend/oauth/token", {
-        username: payload?.email,
-        password: payload?.password,
-        grant_type: "password",
-        client_id: import.meta.env.VITE_CLIENT_ID,
-        client_secret: import.meta.env.VITE_CLIENT_SECRET,
-        scope: "",
-      });
+    id: "common",
+    state: () => ({
+        user: null,
+        loading: false,
+    }),
+    getters: {},
+    actions: {
+        async login(payload) {
+            const response = await $axios.post("/backend/oauth/token", {
+                username: payload?.email,
+                password: payload?.password,
+                grant_type: "password",
+                client_id: import.meta.env.VITE_CLIENT_ID,
+                client_secret: import.meta.env.VITE_CLIENT_SECRET,
+                scope: "",
+            });
 
-      this.setProfile(response?.data);
+            localStorageService.setToken(response?.data)
+        },
+        async logout() {
+            localStorageService.clearToken()
+            this.user = null
+        },
+        async fetchUser() {
+            const {data} = await $axios.get("/backend/api/user")
+            this.user = data
+        },
     },
-    async logout() {
-      $axios.get("/backend/api/user").then((response) => {
-        this.setProfile(response?.data);
-      });
-    },
-    async setProfile(payload) {
-      this.user = payload;
-    },
-  },
 });
