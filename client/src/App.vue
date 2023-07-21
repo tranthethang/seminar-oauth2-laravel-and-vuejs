@@ -19,6 +19,7 @@ import Profile from "./components/Profile.vue"
       <Profile @logout="handleLogout"/>
     </template>
   </main>
+  <notifications position="top left" width="480" max="5"/>
 </template>
 
 <style scoped></style>

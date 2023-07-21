@@ -1,6 +1,8 @@
 import axios from "axios";
 
+import {notify} from "@kyvg/vue3-notification";
 import LocalStorageService from "@/services/LocalStorageService"
+
 const localStorageService = LocalStorageService.getService()
 
 const $axios = axios.create({
@@ -16,8 +18,18 @@ $axios.interceptors.request.use(config => {
         return config;
     },
     error => {
-        console.log(error)
         Promise.reject(error)
+    }
+);
+
+$axios.interceptors.response.use(
+    response => response,
+    error => {
+        let msg = error?.response?.data?.error_description
+        if(!msg) {
+            msg = error?.message
+        }
+        notify({type: "warn", text: msg});
     }
 );
 

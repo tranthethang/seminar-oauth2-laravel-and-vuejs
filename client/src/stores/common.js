@@ -1,6 +1,7 @@
-import $axios from "@/libs/axios";
-import {defineStore} from "pinia";
+import $axios from "@/libs/axios"
+import {defineStore} from "pinia"
 import LocalStorageService from "@/services/LocalStorageService"
+import {notify} from "@kyvg/vue3-notification"
 
 const localStorageService = LocalStorageService.getService()
 
@@ -21,17 +22,23 @@ export const useCommonStore = defineStore({
                 client_id: import.meta.env.VITE_CLIENT_ID,
                 client_secret: import.meta.env.VITE_CLIENT_SECRET,
                 scope: "",
-            });
+            })
 
-            localStorageService.setToken(response?.data)
+            if (response?.data) {
+                localStorageService.setToken(response?.data)
+                notify("Welcome, bro.")
+            }
         },
         async logout() {
             localStorageService.clearToken()
             this.user = null
+            notify("Bye bye, my friend!")
         },
         async fetchUser() {
-            const {data} = await $axios.get("/backend/api/user")
-            this.user = data
+            const response = await $axios.get("/backend/api/user")
+            if (response?.data) {
+                this.user = response?.data
+            }
         },
     },
-});
+})
