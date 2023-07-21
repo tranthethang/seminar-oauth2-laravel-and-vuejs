@@ -8,4 +8,8 @@ php artisan migrate &&
 php artisan passport:install &&
 php artisan passport:client --password &&
 php artisan optimize &&
-cd ..
+cd .. &&
+cd ./client &&
+cp .env.sample .env &&
+npm install &&
+npm run build
