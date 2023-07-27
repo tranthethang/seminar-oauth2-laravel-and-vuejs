@@ -8,11 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@kyvg/vue3-notification": "^2.9.1",
     "axios": "^1.4.0",
     "http-proxy": "^1.18.1",
     "milligram": "^1.4.1",
     "pinia": "^2.1.4",
-    "vue": "^3.3.4"
+    "soft-ui-dashboard": "github:tranthethang/soft-ui-dashboard",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

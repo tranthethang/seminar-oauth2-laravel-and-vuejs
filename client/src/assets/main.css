@@ -1,10 +1,11 @@
-@import "milligram";
+@import "soft-ui-dashboard/assets/css/nucleo-icons.css";
+@import "soft-ui-dashboard/assets/css/nucleo-svg.css";
+@import "soft-ui-dashboard/assets/css/soft-ui-dashboard.css";
 
 body {
   margin: 0;
   padding: 0;
   background-color: #dfdfdf;
-  font-size: 13px;
 }
 
 #app {
