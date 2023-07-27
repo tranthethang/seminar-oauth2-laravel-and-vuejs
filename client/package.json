@@ -13,6 +13,7 @@
     "http-proxy": "^1.18.1",
     "milligram": "^1.4.1",
     "pinia": "^2.1.4",
+    "soft-ui-dashboard": "github:tranthethang/soft-ui-dashboard",
     "vue": "^3.3.4",
     "vue-router": "^4.2.2"
   },

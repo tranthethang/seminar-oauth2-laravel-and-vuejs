@@ -1,1 +1,0 @@
-<p class="footer__copyright">Copyright &copy; Alex Kalh. All rights reserved.</p>

@@ -38,7 +38,9 @@ export const useCommonStore = defineStore({
             const response = await $axios.get("/backend/api/user")
             if (response?.data) {
                 this.user = response?.data
+                return true;
             }
+            return false;
         },
     },
 })
