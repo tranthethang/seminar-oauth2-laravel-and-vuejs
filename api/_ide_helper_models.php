@@ -216,6 +216,50 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * Class TableRelationship
+ *
+ * @property int $id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property int $follower_id
+ * @property int $followed_id
+ * @package App\Models
+ * @method static \Illuminate\Database\Eloquent\Builder|TableRelationship newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TableRelationship newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TableRelationship query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TableRelationship whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TableRelationship whereFollowedId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TableRelationship whereFollowerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TableRelationship whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TableRelationship whereUpdatedAt($value)
+ */
+	class TableRelationship extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * Class TableTweet
+ *
+ * @property int $id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string $content
+ * @property int $user_id
+ * @package App\Models
+ * @method static \Illuminate\Database\Eloquent\Builder|TableTweet newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TableTweet newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TableTweet query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TableTweet whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TableTweet whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TableTweet whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TableTweet whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TableTweet whereUserId($value)
+ */
+	class TableTweet extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * Class TelescopeEntriesTag
  *
  * @property string $entry_uuid

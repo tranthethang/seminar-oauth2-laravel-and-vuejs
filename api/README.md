@@ -56,4 +56,44 @@ __5 :: Use postman to test API__
 }
 ```
 
+__6 :: Libs__
++ reliese/laravel
+```shell
+# Install
+composer require reliese/laravel --dev
 
+# Config
+php artisan vendor:publish --tag=reliese-models
+
+# Let's refresh our config cache just in case
+php artisan config:clear
+
+# Usage
+php artisan code:models
+```
+
++ mennovanhout/laravel-model-constants
+```shell
+# Install
+composer require mennovanhout/laravel-model-constants
+
+# Usage
+php artisan model:constants
+```
+
++ prettus/l5-repository
+
++ barryvdh/laravel-ide-helper
+```shell
+# Install
+composer require --dev barryvdh/laravel-ide-helper
+
+# Usage: PHPDoc generation for Laravel Facades
+php artisan ide-helper:generate
+
+# Usage: PHPDocs for models
+php artisan ide-helper:models
+
+# Usage: PhpStorm Meta file
+php artisan ide-helper:meta
+```

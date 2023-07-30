@@ -7,13 +7,11 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Passport\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class User
- *
+ * 
  * @property int $id
  * @property string $name
  * @property string $email
@@ -25,11 +23,8 @@ use Laravel\Passport\HasApiTokens;
  *
  * @package App\Models
  */
-class User extends Authenticatable
-{	
-    use HasFactory;
-	use HasApiTokens;
-
+class User extends Model
+{
 	protected $table = 'users';
 
 	protected $casts = [
