@@ -1,12 +1,12 @@
 Seminar OAuth2: Laravel & VueJS
 ---
 
-[ 1 ] __Setup__
+__1 :: Setup__
 ```shell
 docker compose up -d
 ```
 
-[ 2 ] __Access container bash screen__
+__2 :: Access container bash screen__
 ```shell  
 docker exec -it api-laravel.test-1 "/bin/bash"
 
@@ -22,16 +22,17 @@ php artisan migrate:refresh --seed
 > email: admin@example.com 
 > pwd: password
 
-[ 3 ] __Generate Client ID & Client Secret__
+__3 :: Generate Client ID & Client Secret__
 ```shell
+php artisan passport:install &&
 php artisan passport:client --password
 ```
 
-[ 4 ] __Register user__
+__4 :: Register user__
 + Open website by any Browser: http://localhost:[APP_PORT]
 + Click register button, and enter user's infomation.
 
-[ 5 ] __Use postman to test API__
+__5 :: Use postman to test API__
 + URL: htt://localhost:[APP_PORT]/oauth/token
 + Method: POST
 + Payload body 
@@ -49,8 +50,10 @@ php artisan passport:client --password
 ```json
 {
     "token_type": "Bearer",
-    "expires_in": 31622400,
+    "expires_in": "ABC",
     "access_token": "XXX",
     "refresh_token": "YYY"
 }
 ```
+
+

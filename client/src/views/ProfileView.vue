@@ -19,17 +19,17 @@
 
 <script>
 import {mapActions, mapState} from "pinia"
-import {useCommonStore} from "@/stores/common"
+import {useAuthStore} from "@/stores/auth"
 
 export default {
   data() {
     return {}
   },
   computed: {
-    ...mapState(useCommonStore, ["user"]),
+    ...mapState(useAuthStore, ["user"]),
   },
   methods: {
-    ...mapActions(useCommonStore, ["logout"]),
+    ...mapActions(useAuthStore, ["logout"]),
     async handleLogout() {
       await this.logout();
       this.$router.push({ name: 'home' })

@@ -46,7 +46,7 @@
 <script setup>
 </script>
 <script>
-import {useCommonStore} from "@/stores/common"
+import {useAuthStore} from "@/stores/auth"
 import {mapActions, mapState} from "pinia";
 
 export default {
@@ -57,10 +57,10 @@ export default {
     };
   },
   computed: {
-    ...mapState(useCommonStore, ["user"]),
+    ...mapState(useAuthStore, ["user"]),
   },
   methods: {
-    ...mapActions(useCommonStore, ["login", "fetchUser"]),
+    ...mapActions(useAuthStore, ["login", "fetchUser"]),
     async submit(e) {
       e.preventDefault();
 

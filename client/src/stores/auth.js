@@ -5,9 +5,9 @@ import {notify} from "@kyvg/vue3-notification"
 
 const localStorageService = LocalStorageService.getService()
 
-
-export const useCommonStore = defineStore({
-    id: "common",
+export const useAuthStore = defineStore({
+    persist: true,
+    id: "auth",
     state: () => ({
         user: null,
         loading: false,
