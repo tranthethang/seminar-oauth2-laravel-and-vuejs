@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+use Laravel\Passport\HasApiTokens;
 
 /**
  * Class User
@@ -28,6 +29,7 @@ use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 {
 	use HasFactory;
+	use HasApiTokens;
 	use AuthenticableTrait;
 
 	protected $table = 'users';
