@@ -2,6 +2,8 @@
 
 cd ./api &&
 cp .env.sample .env &&
+npm i &&
+npm run build &&
 composer update &&
 composer install &&
 php artisan key:generate &&
